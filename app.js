@@ -10,15 +10,6 @@ var usersRouter = require('./routes/users');
 const app = express();
 const port = 3000;
 
-// basic server start
-app.get("/", (req, res) => {
-  res.send("This is an express server")
-})
-
-//basic listener
-app.listen(port, () => {
-  console.log("Server listening at port 3000")
-})
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -47,6 +38,17 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// basic server start
+app.get("/", (req, res) => {
+  res.send("This is an express server")
+})
+
+//basic listener
+app.listen(port, () => {
+  console.log("Server listening at port 3000")
+})
+
 
 module.exports = app;
 
